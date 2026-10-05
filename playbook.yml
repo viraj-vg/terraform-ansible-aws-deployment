@@ -1,0 +1,48 @@
+---
+- name : Deploy nodejs application
+  hosts: webservers
+  become: yes
+  vars:
+    repo_url: "https://github.com/rat9615/simple-nodejs-app"
+    app_dir: "/home/ubuntu/simple-nodejs-app"
+    node_version: "14"
+
+
+  tasks:
+    - name: Wait for SSH connection
+      wait_for_connection:
+        timeout: 300
+        sleep: 5
+
+    - name: updating apt cache
+      apt:
+        update_cache: yes
+    
+    - name : Install prequirets and dependencies
+      apt:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - git 
+        - curl
+        - nodejs
+
+    - name: clone application repository
+      git:
+        repo: "{{ repo_url }}"
+        dest: "{{ app_dir }}"
+        force: yes
+
+    - name: install all dependencies
+      shell: |
+        cd {{ app_dir }}
+        npm install
+      args:
+        chdir: "{{ app_dir }}"
+      
+    - name: start the application
+      shell: |
+        cd {{ app_dir }}
+        npm start &
+      args:
+        chdir: "{{ app_dir }}"
