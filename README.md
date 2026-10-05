@@ -96,7 +96,6 @@ Install the following on the Ubuntu machine you will run Terraform and Ansible f
 - [Terraform](https://developer.hashicorp.com/terraform/install)
 - [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/)
 - [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
-- Git
 
 You also need:
 
