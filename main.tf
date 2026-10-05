@@ -34,7 +34,7 @@ resource "aws_security_group" "app_sg" {
 resource "aws_instance" "ansible_with_terraform" {
     ami                    = "ami-01a00762f46d584a1"
     instance_type          = "t3.micro"
-    key_name               = "your-key"
+    key_name               = "# add your-key"
     vpc_security_group_ids = [aws_security_group.app_sg.id]
 
     tags = {
