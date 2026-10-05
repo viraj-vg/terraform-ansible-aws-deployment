@@ -380,41 +380,6 @@ Values such as `your-key`, `/path/to/your-key.pem` and `YOUR_EC2_PUBLIC_IP` in t
 
 ---
 
-## Uploading to GitHub
-
-After checking your files, initialize Git:
-
-```bash
-git init
-```
-
-Add the project files:
-
-```bash
-git add main.tf playbook.yml inventory.ini README.md
-```
-
-Create a commit:
-
-```bash
-git commit -m "Add Terraform and Ansible deployment"
-```
-
-Connect your GitHub repository:
-
-```bash
-git remote add origin https://github.com/YOUR_USERNAME/terraform-ansible-aws-deployment.git
-```
-
-Push the project:
-
-```bash
-git branch -M main
-git push -u origin main
-```
-
----
-
 ## Assignment Files
 
 | File | Description |
