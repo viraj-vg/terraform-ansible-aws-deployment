@@ -1,0 +1,10 @@
+# Private keys
+*.pem
+*.key
+
+# Terraform state (can contain secrets)
+terraform.tfstate
+terraform.tfstate.*
+
+# Terraform working directory
+.terraform/
